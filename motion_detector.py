@@ -1,5 +1,4 @@
 import cv2, pandas  # Biblioteca para procesamiento de imágenes y video y manejo de datos tabulares
-import time  # Biblioteca para manejar tiempos y pausas
 from datetime import datetime  # Para manejar fechas y horas
 
 # Inicializamos la variable para almacenar el primer cuadro (frame) de referencia
@@ -65,6 +64,8 @@ while True:
 
     # Añadimos el estado actual a la lista de estados
     status_list.append(status)
+    
+    status_list = status_list[-2:]  # Mantenemos solo los dos últimos estados
 
     # Si el estado cambia de 0 a 1, registramos el tiempo de inicio del movimiento
     if status_list[-1] == 1 and status_list[-2] == 0:
